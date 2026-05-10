@@ -1,0 +1,21 @@
+[Unit]
+Description=CPA Vision Bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=vision-bridge
+Group=vision-bridge
+WorkingDirectory=/opt/vision-bridge
+Environment=VISION_BRIDGE_CONFIG=/etc/vision-bridge/config.yaml
+Environment=VISION_BRIDGE_LISTEN_HOST=0.0.0.0
+Environment=VISION_BRIDGE_LISTEN_PORT=8320
+Environment=VISION_BRIDGE_UPSTREAM_ORIGIN=http://127.0.0.1:8317
+Environment=VISION_BRIDGE_CACHE_PATH=/var/cache/cpa-vision-bridge/cache.json
+ExecStart=/opt/vision-bridge/.venv/bin/python -m vision_bridge
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

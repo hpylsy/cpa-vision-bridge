@@ -1,0 +1,20 @@
+[project]
+name = "cpa-vision-bridge"
+version = "0.1.0"
+description = "A small OpenAI-compatible preprocessing proxy for CPA and text-only upstream models."
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.32.0",
+  "PyYAML>=6.0.0",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=6.2.5",
+]
+
+[project.scripts]
+cpa-vision-bridge = "vision_bridge.server:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,41 @@
+enabled: true
+
+# CPA listens on 8317 in the reference deployment.
+upstream_origin: http://127.0.0.1:8317
+
+listen:
+  host: 0.0.0.0
+  port: 8320
+
+vision:
+  model: gpt-5.4
+  reasoning_effort: low
+  prompt: >-
+    Extract only information visible in the image that may be useful for the next model.
+    Focus on text, errors, code, file paths, tables, UI state, terminal output, and key objects.
+    Describe objectively and do not solve the problem.
+
+cache:
+  path: /var/cache/cpa-vision-bridge/cache.json
+  ttl_seconds: 604800
+
+models:
+  # CPA alias should route this public model name to deepseek-ai/deepseek-v4-pro.
+  gpt-5.4-mini:
+    preprocess_images: true
+    collapse_text_content: true
+    reasoning_effort_aliases:
+      xhigh: max
+
+  # CPA alias should route this public model name to minimaxai/minimax-m2.7.
+  gpt-5.2:
+    preprocess_images: true
+    collapse_text_content: true
+    reasoning_effort_aliases:
+      xhigh: high
+
+  # Direct route. It should not use Vision Bridge preprocessing by default.
+  gpt-5.5:
+    preprocess_images: false
+    collapse_text_content: false
+    reasoning_effort_aliases: {}

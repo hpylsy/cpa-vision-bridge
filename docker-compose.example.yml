@@ -1,0 +1,18 @@
+services:
+  vision-bridge:
+    build:
+      context: .
+    restart: unless-stopped
+    environment:
+      VISION_BRIDGE_CONFIG: /app/config.yaml
+      VISION_BRIDGE_UPSTREAM_ORIGIN: http://host.docker.internal:8317
+    ports:
+      - "8320:8320"
+    volumes:
+      - ./config.example.yaml:/app/config.yaml:ro
+      - vision_bridge_cache:/var/cache/cpa-vision-bridge
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  vision_bridge_cache:

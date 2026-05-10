@@ -1,0 +1,21 @@
+{
+  "model": "gpt-5.2",
+  "reasoning": {
+    "effort": "xhigh"
+  },
+  "input": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "第一段"
+        },
+        {
+          "type": "input_text",
+          "text": "第二段"
+        }
+      ]
+    }
+  ]
+}

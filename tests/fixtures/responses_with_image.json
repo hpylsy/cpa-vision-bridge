@@ -1,0 +1,20 @@
+{
+  "model": "gpt-5.4-mini",
+  "reasoning_effort": "xhigh",
+  "input": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "请看这张截图"
+        },
+        {
+          "type": "input_image",
+          "image_url": "data:image/png;base64,abc",
+          "detail": "high"
+        }
+      ]
+    }
+  ]
+}

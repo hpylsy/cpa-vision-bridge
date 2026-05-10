@@ -1,0 +1,21 @@
+{
+  "model": "gpt-5.2",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "请识别图里有什么"
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "https://example.test/screenshot.png",
+            "detail": "high"
+          }
+        }
+      ]
+    }
+  ]
+}
