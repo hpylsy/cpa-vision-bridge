@@ -1,2 +1,0 @@
-[console_scripts]
-cpa-vision-bridge = vision_bridge.server:main
